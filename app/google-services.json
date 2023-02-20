@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "333268612937",
+    "project_id": "podcast-fc187",
+    "storage_bucket": "podcast-fc187.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333268612937:android:e4274553dba42496558c98",
+        "android_client_info": {
+          "package_name": "com.example.podcast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "333268612937-2em5klk53ppbiqiph4ao932k9a8qet4l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwr5dW6kUsse7X5462F2eRfrVZ-tAsdLo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "333268612937-2em5klk53ppbiqiph4ao932k9a8qet4l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
