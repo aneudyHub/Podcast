@@ -22,6 +22,7 @@ val Typography = Typography(
         fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W400,
         fontSize = 16.sp,
+        color = Gray500
     ),
     body2 = TextStyle(
         fontFamily = FontFamily.Default,
