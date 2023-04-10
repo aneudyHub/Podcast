@@ -1,37 +1,41 @@
 package com.example.podcast.viewmodels
 
+import app.cash.turbine.test
+import com.example.podcast.di.Navigator
 import com.example.podcast.ui.navigation.AuthRoutes
 import com.example.podcast.ui.viewmodels.SplashViewModel
-import dagger.hilt.android.testing.HiltAndroidTest
 import junit.framework.TestCase.assertEquals
-import junit.framework.TestCase.assertNotNull
+import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import javax.inject.Inject
 
-@HiltAndroidTest
 class SplashViewModelTest {
 
-    @Inject
-    lateinit var viewModel: SplashViewModel
+    private lateinit var viewModel: SplashViewModel
+    private lateinit var navigator: Navigator
 
     @Before
-    fun setup() {
-        viewModel = SplashViewModel()
+    fun setup() = runTest {
+        navigator = Navigator()
+        viewModel = SplashViewModel(navigator)
     }
 
     @Test
-    fun `create new account button has been pressed`() {
-        assertNotNull(viewModel)
-        viewModel.createNewAccountPressed()
-        assertEquals(viewModel.navigation.value, AuthRoutes.SignUp)
+    fun `create new account button has been pressed`() = runTest {
+        viewModel.navigator.sharedFlow.test {
+            viewModel.createNewAccountPressed()
+            val routes = awaitItem()
+            assertEquals(AuthRoutes.SignUp, routes)
+        }
     }
 
     @Test
-    fun `sign in button has been pressed`() {
-        assertNotNull(viewModel)
-        viewModel.signInPressed()
-        assertEquals(viewModel.navigation.value, AuthRoutes.SignIn)
+    fun `sign in button has been pressed`() = runTest {
+        viewModel.navigator.sharedFlow.test {
+            viewModel.signInPressed()
+            val routes = awaitItem()
+            assertEquals(AuthRoutes.SignIn, routes)
+        }
     }
 
 }

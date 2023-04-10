@@ -18,7 +18,7 @@ import com.example.podcast.ui.viewmodels.SplashViewModel
 
 
 @Composable
-fun SplashScreen() {
+fun SplashScreen(viewModel: SplashViewModel = hiltViewModel()) {
     Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colors.background) {
         Column(
             modifier = Modifier
@@ -41,14 +41,20 @@ fun SplashScreen() {
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center,
             ) {
-                BottomContent()
+                BottomContent(
+                    onCreateNewAccountClick = { viewModel.createNewAccountPressed() },
+                    onSignInClick = { viewModel.signInPressed() }
+                )
             }
         }
     }
 }
 
 @Composable
-fun BottomContent(viewModel: SplashViewModel = hiltViewModel()) {
+fun BottomContent(
+    onCreateNewAccountClick: () -> Unit,
+    onSignInClick: () -> Unit
+) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -83,14 +89,14 @@ fun BottomContent(viewModel: SplashViewModel = hiltViewModel()) {
                         modifier = Modifier.padding(16.dp),
                         textResource = R.string.new_account
                     ) {
-                        viewModel.createNewAccountPressed()
+                        onCreateNewAccountClick()
                     }
                     TertiaryButton(
                         modifier = Modifier.padding(8.dp),
                         textResource = R.string.sign_in,
                         color = MaterialTheme.colors.onBackground
                     ) {
-                        viewModel.signInPressed()
+                        onSignInClick()
                     }
                 }
             }

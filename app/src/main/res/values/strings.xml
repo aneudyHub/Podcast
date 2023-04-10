@@ -4,4 +4,25 @@
     <string name="splash_subtitle">Your favorite artists in one place</string>
     <string name="new_account">Create new account</string>
     <string name="sign_in">Sign In</string>
+
+
+<!--    SignUp Screen-->
+    <string name="full_name_label">Full name</string>
+    <string name="full_name_placeholder">Alex Brut</string>
+    <string name="email_label">E-mail address</string>
+    <string name="email_placeholder">example@example.com</string>
+    <string name="password_label">Password</string>
+    <string name="agree_terms_privacy">I agree with Terms and Privacy Policy</string>
+    <string name="or">or</string>
+    <string name="google">Google</string>
+    <string name="facebook">Facebook</string>
+
+
+
+
+<!--    Forms Error Msg-->
+
+    <string name="required">* Required</string>
+    <string name="email_not_valid">The email must contain @</string>
+    <string name="password_not_valid">at least 6 digits,1 special character</string>
 </resources>
